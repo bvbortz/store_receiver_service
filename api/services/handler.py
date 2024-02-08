@@ -31,10 +31,7 @@ def image_to_byte_array(image: Image) -> bytes:
     imgByteArr = imgByteArr.getvalue()
     return imgByteArr
 def image_handler(prompt, name):
-    print("started publish")
-    f = open("demofile2.txt", "a")
-    f.write("started publish")
-    f.close()
+    print("started image handling")
     prompt = [prompt]
     height = 512  # default height of Stable Diffusion
     width = 512  # default width of Stable Diffusion
@@ -80,7 +77,6 @@ def image_handler(prompt, name):
 
         # compute the previous noisy sample x_t -> x_t-1
         latents = scheduler.step(noise_pred, t, latents).prev_sample
-        print("next step")
 
     latents = 1 / 0.18215 * latents
 
@@ -101,7 +97,6 @@ def image_handler(prompt, name):
         else:
             print(f"Bucket {BUCKET_NAME} already exists")
     
-        print(f"length is {len(pil_images)}")
         for i in range(min(len(pil_images), 5)):
             imageTmp = pil_images[i]
             out_img = io.BytesIO()
