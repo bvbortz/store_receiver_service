@@ -69,7 +69,6 @@ class rabbitMQServer():
         
         try:
             r1 = requests.post(url="http://backend:5000/images/saved", data={'name': body_obj['name']})
-            # r2 = requests.post(url="http://localhost/api/images/saved", data={'name': body_obj['name']})
         except Exception as e:
             logging.info("The error is: ",e)
         logging.info(f'saved image in minIO')
