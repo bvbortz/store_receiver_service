@@ -29,7 +29,7 @@ class rabbitMQServer():
         self._username = username
         self._password = password
         self.start_server()
-        set_interval(self._connection.process_data_events, 40)
+        set_interval(self._connection.process_data_events, 55)
 
     def start_server(self):
         self.create_channel()
